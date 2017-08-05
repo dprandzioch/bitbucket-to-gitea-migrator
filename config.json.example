@@ -3,15 +3,14 @@
         "check_exists": false
     },
     "gogs": {
-        "url": "",
+        "url": "git.example.tld",
         "protocol": "http",
-        "user": "",
-        "password": "",
-        "user_id_receiving": 0
+        "token": "some-token",
+        "owner_id": 1
     },
     "bitbucket": {
         "user": "",
         "password": "",
-        "team": ""
+        "team": null
     }
 }

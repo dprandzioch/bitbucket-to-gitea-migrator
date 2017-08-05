@@ -1,3 +1,6 @@
+!! This is a version of bitbucket-to-gogs-migrator by girvo that works with the latest Gitea !!
+!! Original README.md below !!
+
 # BitBucket to Gogs Migration Script
 This repository holds a simple Node.js script that when executed will find all repositories for a given user or team on BitBucket, and migrate all of the repositories found over to the Gogs installation provided.
 

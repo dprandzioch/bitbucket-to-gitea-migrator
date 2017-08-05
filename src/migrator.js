@@ -84,9 +84,7 @@ Migrator.prototype.migrate = function(repos, deferred) {
 
         // Starts the migration through Gogs API
         var formData = {
-            username: this.conf.gogs.user,
-            password: this.conf.gogs.password,
-            url: 'https://bitbucket.org/' + fullName,
+            clone_addr: 'https://bitbucket.org/' + fullName,
             auth_username: this.conf.bitbucket.user,
             auth_password: this.conf.bitbucket.password,
             uid: this.conf.gogs.owner_id,
@@ -98,7 +96,10 @@ Migrator.prototype.migrate = function(repos, deferred) {
         request({
             method: 'POST',
             uri: this.endpoints.gogs.migrate,
-            formData: formData
+            formData: formData,
+            headers: {
+                'Authorization': 'token ' + this.conf.gogs.token
+            }
         }, function(err, res, body) {
             if (err) {
                 console.error(err);
