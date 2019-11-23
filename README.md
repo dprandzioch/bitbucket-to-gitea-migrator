@@ -5,11 +5,14 @@
 # BitBucket to Gitea Migration Script
 This repository holds a simple Node.js script that when executed will find all repositories for a given user or team on BitBucket, and migrate all the repositories found over to the Gitea installation provided.
 
-## Installation
+## Installation and Usage
 To use `bitbucket-to-gogs-migrator` follow this steps:
 
     git clone https://github.com/dprandzioch/bitbucket-to-gitea-migrator.git
     cd bitbucket-to-gogs-migrator
+    cp config.json.example config.json
+
+Now edit the `config.json` file to  provide the Gitea instance URL, Authentication token and the owner ID. Also, add the BitBucket username and password, and a team name if you're migrating a team (leave null if not).
 
 To install manually:
 
@@ -19,12 +22,15 @@ To install with docker:
 
     docker build -t bitbucket-to-gogs-migrator .
 
-## Usage
-1. Copy the example config file, `cp config.json.example config.json`
-2. Now edit the `config.json` file to  provide the Gitea instance URL, Authentication tocken and the owner ID.
-4. Also, add the BitBucket username and password, and a team name if you're migrating a team (leave null if not).
-5. To begin the migration on manual mode use `npm start` and for docker use `docker run bitbucket-to-gogs-migrator`
-6. Go have a tea and biscuit, and wait!
+To begin the migration on manually:
+
+    npm start
+
+To begin the migration with docker
+
+    docker run bitbucket-to-gogs-migrator
+
+Go have a tea and biscuit, and wait!
     
 
 ## Notes
